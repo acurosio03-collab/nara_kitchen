@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html class="dark" lang="id">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NARA KITCHEN - Checkout</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config={darkMode:"class",theme:{extend:{colors:{surface:"#1e1e1e",primary:"#ffb4a2",background:"#131313",border:"#333333",textprimary:"#f5f5f5",textsecondary:"#a0a0a0",primarycontainer:"#c84c2c"},fontFamily:{display:["Playfair Display"],body:["Inter"]}}}};
+</script>
+<style>
+body{background:#121212;color:#f5f5f5;font-family:Inter,sans-serif}::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#121212}::-webkit-scrollbar-thumb{background:#333;border-radius:4px}.display{font-family:"Playfair Display",serif}.checkout-card{background:#1e1e1e;border:1px solid #333;border-radius:12px}.input-dark{background:#121212!important;border:1px solid #333!important;color:#f5f5f5!important}.input-dark:focus{border-color:#c84c2c!important;box-shadow:none!important}.pay.active{border-color:#c84c2c;background:#2a2a2a}.safe-bottom{padding-bottom:max(16px,env(safe-area-inset-bottom))}
+</style>
+</head>
+<body class="min-h-screen antialiased pb-28 md:pb-8 pt-16">
+<header class="fixed top-0 left-0 w-full z-50 bg-[#1e1e1e]/90 backdrop-blur-xl border-b border-[#333] h-16">
+<div class="max-w-2xl mx-auto h-full px-4 md:px-6 flex items-center gap-4">
+<button id="back" class="text-[#ffb4a2] flex items-center justify-center"><span class="material-symbols-outlined">arrow_back</span></button>
+<div><div class="text-[10px] tracking-[.18em] text-[#a0a0a0] uppercase">NARA KITCHEN</div><h1 class="display text-xl md:text-2xl text-[#ffb4a2]">Checkout</h1></div>
+</div></header>
+<main class="max-w-2xl mx-auto px-4 md:px-6 mt-8 space-y-8">
+<section><h2 class="display text-2xl mb-4">Detail Pengiriman</h2><div class="checkout-card p-5 md:p-6 space-y-5">
+<label class="block"><span class="block text-[11px] tracking-[.12em] text-[#a0a0a0] uppercase mb-2">Alamat Pengiriman</span><textarea id="address" required rows="3" class="input-dark w-full rounded-lg p-4 resize-none" placeholder="Masukkan alamat lengkap..."></textarea></label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4"><label class="block"><span class="block text-[11px] tracking-[.12em] text-[#a0a0a0] uppercase mb-2">Nama Penerima</span><input id="name" required class="input-dark w-full rounded-lg p-4" placeholder="Nama"/></label><label class="block"><span class="block text-[11px] tracking-[.12em] text-[#a0a0a0] uppercase mb-2">Nomor Telepon</span><input id="phone" required type="tel" class="input-dark w-full rounded-lg p-4" placeholder="08xx..."/></label></div>
+<label class="block"><span class="block text-[11px] tracking-[.12em] text-[#a0a0a0] uppercase mb-2">Catatan Pesanan</span><textarea id="note" rows="2" class="input-dark w-full rounded-lg p-4 resize-none" placeholder="Contoh: tanpa pedas"></textarea></label>
+</div></section>
+<section><h2 class="display text-2xl mb-4">Metode Pembayaran</h2><div class="checkout-card p-4 space-y-3">
+<label class="pay flex items-center p-4 border border-[#333] rounded-lg cursor-pointer transition"><span class="w-9 h-9 bg-[#353534] rounded-full flex items-center justify-center mr-4"><span class="material-symbols-outlined">account_balance_wallet</span></span><span class="flex-1">E-Wallet / QRIS</span><input type="radio" name="payment" value="QRIS" class="accent-[#c84c2c]"/></label>
+<label class="pay flex items-center p-4 border border-[#333] rounded-lg cursor-pointer transition"><span class="w-9 h-9 bg-[#353534] rounded-full flex items-center justify-center mr-4"><span class="material-symbols-outlined">credit_card</span></span><span class="flex-1">Kartu Kredit / Debit</span><input type="radio" name="payment" value="Kartu" class="accent-[#c84c2c]"/></label>
+<label class="pay flex items-center p-4 border border-[#333] rounded-lg cursor-pointer transition"><span class="w-9 h-9 bg-[#353534] rounded-full flex items-center justify-center mr-4"><span class="material-symbols-outlined">payments</span></span><span class="flex-1">Cash on Delivery</span><input type="radio" name="payment" value="COD" checked class="accent-[#c84c2c]"/></label>
+</div></section>
+<section><div class="flex items-end justify-between mb-4"><h2 class="display text-2xl">Ringkasan Pesanan</h2><span id="count" class="text-xs text-[#a0a0a0]"></span></div><div class="checkout-card p-5 md:p-6"><div id="items" class="space-y-4 border-b border-[#333] pb-5"></div><div class="space-y-3 pt-5 text-sm"><div class="flex justify-between"><span class="text-[#a0a0a0]">Subtotal</span><span id="subtotal"></span></div><div class="flex justify-between"><span class="text-[#a0a0a0]">Ongkos Kirim</span><span id="shipping"></span></div><div class="flex justify-between"><span class="text-[#a0a0a0]">Diskon Demo</span><span id="discount" class="text-[#ffb4a2]"></span></div></div><div class="border-t border-[#333] mt-5 pt-5 flex justify-between items-center"><span class="display text-xl">Total</span><strong id="total" class="display text-2xl text-[#ffb4a2]"></strong></div></div></section>
+</main>
+<div class="fixed bottom-0 left-0 w-full z-40 bg-[#1e1e1e]/95 backdrop-blur-md border-t border-[#333] safe-bottom"><div class="max-w-2xl mx-auto p-4 md:px-6"><button id="submit" class="w-full bg-[#c84c2c] text-white font-semibold py-4 rounded-xl hover:bg-[#aa3618] transition">Buat Pesanan</button></div></div>
+<script src="js/data.js"></script>
+<script>
+const products=getProducts(), business=getBusiness();
+const cart=getCart().map(x=>({...x,p:products.find(p=>p.id==x.id)})).filter(x=>x.p);
+const money2=n=>money(n); const shipping=12000; const discount=cart.length?8000:0; const subtotal=cart.reduce((s,x)=>s+x.p.price*x.qty,0); const total=Math.max(0,subtotal+shipping-discount);
+document.getElementById('count').textContent=cart.reduce((s,x)=>s+x.qty,0)+' item';
+document.getElementById('items').innerHTML=cart.length?cart.map(x=>`<div class="flex justify-between gap-4 items-center"><div class="flex gap-3 items-center"><div class="w-16 h-16 rounded-lg bg-[#353534] flex items-center justify-center text-3xl">${x.p.emoji}</div><div><div class="font-medium">${x.p.name}</div><div class="text-xs text-[#a0a0a0] mt-1">${x.qty}x · ${money2(x.p.price)}</div></div></div><div class="font-medium">${money2(x.p.price*x.qty)}</div></div>`).join(''):'<div class="text-[#a0a0a0]">Keranjang kosong. <a class="text-[#ffb4a2]" href="products.html">Kembali ke menu</a></div>';
+document.getElementById('subtotal').textContent=money2(subtotal);document.getElementById('shipping').textContent=money2(shipping);document.getElementById('discount').textContent='- '+money2(discount);document.getElementById('total').textContent=money2(total);
+document.getElementById('back').onclick=()=>history.length>1?history.back():location.href='cart.html';
+document.querySelectorAll('.pay').forEach(l=>l.addEventListener('click',()=>{document.querySelectorAll('.pay').forEach(x=>x.classList.remove('active'));l.classList.add('active')}));document.querySelector('.pay input:checked')?.closest('.pay')?.classList.add('active');
+document.getElementById('submit').onclick=()=>{if(!cart.length){location.href='products.html';return}const name=document.getElementById('name').value.trim(),phone=document.getElementById('phone').value.trim(),address=document.getElementById('address').value.trim(),note=document.getElementById('note').value.trim(),payment=document.querySelector('input[name=payment]:checked')?.value||'COD';if(!name||!phone||!address){alert('Lengkapi nama, nomor telepon, dan alamat terlebih dahulu.');return}const order={id:'ORD-'+Date.now().toString().slice(-6),createdAt:new Date().toISOString(),customer:{name,phone,address,note},payment,items:cart,total,status:'Baru'};const orders=getOrders();orders.push(order);saveOrders(orders);saveCart([]);const lines=[`Halo ${business.name}, saya ingin order *${order.id}*`,``,`Nama: ${name}`,`No. WA: ${phone}`,`Alamat: ${address}`,`Pembayaran: ${payment}`,note?`Catatan: ${note}`:'',``,`Detail:`,...cart.map(x=>`- ${x.p.name} x${x.qty} = ${money2(x.p.price*x.qty)}`),``,`Ongkir: ${money2(shipping)}`,`Diskon: -${money2(discount)}`,`Total: *${money2(total)}*`].filter(Boolean);window.open(`https://wa.me/${business.phone}?text=${encodeURIComponent(lines.join('\n'))}`,'_blank');location.href='order-success.html?id='+encodeURIComponent(order.id)};
+</script></body></html>
