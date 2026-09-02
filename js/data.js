@@ -1,7 +1,7 @@
 const DEFAULT_BUSINESS={
 name:"NARA KITCHEN",
 tagline:"Rasa Indonesia, dibuat lebih modern.",
-phone:"6281234567890",
+phone:"6283159308699",
 address:"Jl. Tuparev No. 88, Cirebon, Jawa Barat",
 hours:"10.00–22.00",
 city:"Cirebon",
