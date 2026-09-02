@@ -1,0 +1,9 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin Login — NARA KITCHEN</title><link rel="stylesheet" href="../css/style.css"><script src="../js/supabase-config.js"></script><script src="../js/supabase.js"></script></head><body><main class="container" style="max-width:460px;padding:70px 0"><div class="panel"><div class="eyebrow">NARA KITCHEN</div><h1>Admin Login</h1><p class="muted">Kelola menu dan pesanan dari satu tempat.</p><div id="msg"></div><form id="f" class="form-grid"><label>Email<input required type="email" name="email" placeholder="admin@email.com"></label><label>Password<input required type="password" name="password" placeholder="Password"></label><button class="primary">Masuk</button></form><p class="muted" style="font-size:12px;margin-top:15px">Butuh setup Supabase? Baca README dan jalankan <code>supabase-schema.sql</code>.</p></div></main><script>
+const msg=document.getElementById("msg"), form=document.getElementById("f");
+function initAuth(){
+  if(!window.dbReady||!window.db){msg.innerHTML='<div class="panel">Menghubungkan ke Supabase…</div>';return;}
+  window.db.auth.getSession().then(({data:{session}})=>{if(session)location.href="dashboard.html";});
+}
+if(window.dbReady)initAuth();else window.addEventListener('supabase-ready',initAuth,{once:true});
+form.onsubmit=async e=>{e.preventDefault();if(!window.dbReady||!window.db){msg.innerHTML='<div class="panel">Supabase masih terhubung, tunggu sebentar…</div>';return;}let f=new FormData(form);let {error}=await window.db.auth.signInWithPassword({email:f.get("email"),password:f.get("password")});if(error)msg.innerHTML='<div class="panel">'+error.message+'</div>';else location.href="dashboard.html";};
+</script></body></html>

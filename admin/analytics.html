@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ringkasan Bisnis - Nara Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "border": "#333333",
+                        "on-primary": "#611200",
+                        "inverse-primary": "#aa3618",
+                        "surface-container": "#201f1f",
+                        "text-primary": "#f5f5f5",
+                        "tertiary-fixed-dim": "#78d1fc",
+                        "secondary-fixed-dim": "#bccbb6",
+                        "on-tertiary-container": "#fcfdff",
+                        "outline-variant": "#58413c",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed-variant": "#004d66",
+                        "on-surface-variant": "#e0bfb8",
+                        "secondary-fixed": "#d8e7d1",
+                        "surface-bright": "#2a2a2a",
+                        "on-tertiary-fixed": "#001e2b",
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary-container": "#007ea5",
+                        "on-secondary-fixed-variant": "#3e4a3a",
+                        "on-secondary": "#283425",
+                        "inverse-surface": "#e5e2e1",
+                        "primary-container": "#c84c2c",
+                        "surface": "#1e1e1e",
+                        "on-background": "#e5e2e1",
+                        "primary-fixed": "#ffdbd2",
+                        "on-primary-fixed": "#3c0800",
+                        "secondary-container": "#404c3c",
+                        "surface-dim": "#131313",
+                        "on-secondary-container": "#aebda8",
+                        "on-primary-fixed-variant": "#881f01",
+                        "surface-container-low": "#1c1b1b",
+                        "error": "#ffb4ab",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed": "#131e11",
+                        "surface-container-high": "#2a2a2a",
+                        "on-tertiary": "#003547",
+                        "outline": "#a78a83",
+                        "surface-variant": "#353534",
+                        "surface-tint": "#ffb4a2",
+                        "error-container": "#93000a",
+                        "tertiary": "#78d1fc",
+                        "primary-fixed-dim": "#ffb4a2",
+                        "tertiary-fixed": "#c0e8ff",
+                        "inverse-on-surface": "#313030",
+                        "primary": "#ffb4a2",
+                        "background": "#131313",
+                        "text-secondary": "#a0a0a0",
+                        "on-primary-container": "#fffcff",
+                        "secondary": "#bccbb6",
+                        "on-surface": "#e5e2e1",
+                        "surface-container-highest": "#353534"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "lg": "24px",
+                        "gutter": "20px",
+                        "xxl": "64px",
+                        "xs": "4px",
+                        "margin-desktop": "48px",
+                        "margin-mobile": "16px",
+                        "xl": "40px",
+                        "sm": "8px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "headline-sm": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Playfair Display"],
+                        "label-caps": ["Inter"],
+                        "mono-data": ["Inter"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "mono-data": ["13px", { "lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <script src="../js/supabase-config.js"></script><script src="../js/supabase.js"></script><script src="../js/orderin-stitch.js"></script></head>
+<body class="bg-background text-on-surface antialiased min-h-screen pb-32">
+<!-- Header Section -->
+<header class="px-margin-mobile pt-lg pb-md md:hidden sticky top-0 z-40 bg-background/90 backdrop-blur-md border-b border-border">
+<div class="flex justify-between items-center mb-md">
+<h1 class="font-headline-sm text-headline-sm text-text-primary">Ringkasan Bisnis</h1>
+<div class="flex items-center space-x-sm">
+<span class="material-symbols-outlined text-text-secondary cursor-pointer hover:text-primary transition-colors" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-text-secondary cursor-pointer hover:text-primary transition-colors" data-icon="settings">settings</span>
+</div>
+</div>
+<!-- Date Range Picker -->
+<button class="w-full flex items-center justify-between bg-surface border border-border rounded-lg px-md py-sm text-text-secondary font-body-sm text-body-sm hover:border-primary-container transition-colors">
+<div class="flex items-center space-x-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="calendar_today">calendar_today</span>
+<span>7 Hari Terakhir</span>
+</div>
+<span class="material-symbols-outlined text-[18px]" data-icon="expand_more">expand_more</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="px-margin-mobile py-lg space-y-xl md:hidden">
+<!-- Core Metric Cards -->
+<section class="grid grid-cols-2 gap-md">
+<!-- Revenue Card -->
+<div class="bg-surface border border-border rounded-lg p-md flex flex-col justify-between h-[120px]">
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-label-caps text-text-secondary">Total Pendapatan</span>
+<span class="material-symbols-outlined text-primary-container text-[20px]" data-icon="payments">payments</span>
+</div>
+<div>
+<div class="font-mono-data text-[24px] text-text-primary font-semibold">$4,850</div>
+<div class="flex items-center space-x-xs mt-unit text-[#bccbb6]">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+<span class="font-mono-data text-[12px]">+12.5%</span>
+</div>
+</div>
+</div>
+<!-- Active Orders Card -->
+<div class="bg-surface border border-border rounded-lg p-md flex flex-col justify-between h-[120px]">
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-label-caps text-text-secondary">Pesanan Aktif</span>
+<span class="material-symbols-outlined text-tertiary text-[20px]" data-icon="local_dining">local_dining</span>
+</div>
+<div>
+<div class="font-mono-data text-[24px] text-text-primary font-semibold">24</div>
+<div class="flex items-center space-x-xs mt-unit text-text-secondary">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span>
+<span class="font-mono-data text-[12px]">Sedang diproses</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Revenue Chart Section -->
+<section class="bg-surface border border-border rounded-lg p-md">
+<h2 class="font-label-caps text-label-caps text-text-secondary mb-lg">Tren Pendapatan Mingguan</h2>
+<div class="h-[180px] flex items-end justify-between space-x-sm">
+<!-- Bar 1 -->
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-surface-bright rounded-t-sm h-[40%] transition-all hover:bg-surface-variant cursor-pointer relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-surface-container-highest px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">$450</div>
+</div>
+<span class="font-mono-data text-[10px] text-text-secondary mt-sm">Sen</span>
+</div>
+<!-- Bar 2 -->
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-surface-bright rounded-t-sm h-[60%] transition-all hover:bg-surface-variant cursor-pointer relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-surface-container-highest px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">$680</div>
+</div>
+<span class="font-mono-data text-[10px] text-text-secondary mt-sm">Sel</span>
+</div>
+<!-- Bar 3 -->
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-surface-bright rounded-t-sm h-[50%] transition-all hover:bg-surface-variant cursor-pointer relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-surface-container-highest px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">$520</div>
+</div>
+<span class="font-mono-data text-[10px] text-text-secondary mt-sm">Rab</span>
+</div>
+<!-- Bar 4 (Current Day - Terracotta) -->
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-primary-container rounded-t-sm h-[85%] transition-all hover:bg-inverse-primary cursor-pointer relative group shadow-[0_0_15px_rgba(200,76,44,0.3)]">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-primary-container text-on-primary px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap font-bold">$950</div>
+</div>
+<span class="font-mono-data text-[10px] text-text-primary font-bold mt-sm">Kam</span>
+</div>
+<!-- Bar 5 -->
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-surface-bright rounded-t-sm h-[30%] transition-all hover:bg-surface-variant cursor-pointer relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-surface-container-highest px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">$340</div>
+</div>
+<span class="font-mono-data text-[10px] text-text-secondary mt-sm">Jum</span>
+</div>
+<!-- Bar 6 -->
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-surface-bright rounded-t-sm h-[75%] transition-all hover:bg-surface-variant cursor-pointer relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-surface-container-highest px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">$850</div>
+</div>
+<span class="font-mono-data text-[10px] text-text-secondary mt-sm">Sab</span>
+</div>
+<!-- Bar 7 -->
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-surface-bright rounded-t-sm h-[90%] transition-all hover:bg-surface-variant cursor-pointer relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-surface-container-highest px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">$1100</div>
+</div>
+<span class="font-mono-data text-[10px] text-text-secondary mt-sm">Min</span>
+</div>
+</div>
+</section>
+<!-- Top Performing Items -->
+<section>
+<div class="flex justify-between items-center mb-md">
+<h2 class="font-headline-sm text-headline-sm-mobile text-text-primary">Menu Terpopuler</h2>
+<button class="font-label-caps text-label-caps text-primary hover:text-primary-fixed transition-colors">Lihat Semua</button>
+</div>
+<div class="space-y-sm">
+<!-- Item 1 -->
+<div class="bg-surface border border-border rounded-lg p-sm flex items-center space-x-md">
+<div class="w-16 h-16 rounded-md overflow-hidden bg-surface-bright flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A close up, high end food photography shot of Truffle Risotto on a dark ceramic plate. Atmospheric, dark mood lighting with deep shadows. Minimalist styling, premium dining context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMqGCh8kJhkJTcWn3iYM4_E06wwq4T4syBCXgV1uXezIEVHslOBwyRABcaweecvFi2T1RYZ78oTT8CoXrUpbVeU3wJoC3szG0EKyxbd2TUprqosuNumFse7mlSJq3Ic3jyMtkvCeFD1tZmVlPZFoxFUO29HtjlrnWjBz8YOGSIZB5qfjh0P2STZiXIAOYnUMlxmok45dCVy-YkrbdjL6ml2f9F0Jl6NW18rP8D5VKYLH1eACPz8INi1A"/>
+</div>
+<div class="flex-1">
+<h3 class="font-body-md text-body-md font-semibold text-text-primary">Truffle Risotto</h3>
+<div class="flex items-center space-x-xs mt-xs text-text-secondary font-mono-data text-[12px]">
+<span>42 pesanan</span>
+<span>•</span>
+<span class="text-[#bccbb6] flex items-center"><span class="material-symbols-outlined text-[12px] mr-[2px]" data-icon="arrow_upward">arrow_upward</span>5%</span>
+</div>
+</div>
+<div class="font-mono-data text-body-md font-semibold text-text-primary">
+                        $1,176
+                    </div>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface border border-border rounded-lg p-sm flex items-center space-x-md">
+<div class="w-16 h-16 rounded-md overflow-hidden bg-surface-bright flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A close up, high end food photography shot of a perfectly seared Wagyu Steak on a slate board. Atmospheric, dark mood lighting with deep shadows, emphasizing the texture of the meat. Minimalist, premium dining context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCytQrBg3DmE6lO8coVkgL9GVaRllfdD0IxwXPMudTWeDc5q1h_qMPUFYWZ_Fa7EBM34m5MBdwMsgUUl7BDMm4XNiM2VRnvMeSiBhj5TcNTki1npKOhu-b2SBgJ8fJYI4bd7f2EuA0gLoxuEtGptXPLyRKxmO8wehFDCDlHdcuUfXSHd-Atx2A6IxkdHepr4q7YUkq0PDOWppyW4X6uUjyLL0tWFpfCS3XwDW2MpDQWs3TCxj1T8siHIA"/>
+</div>
+<div class="flex-1">
+<h3 class="font-body-md text-body-md font-semibold text-text-primary">Wagyu Steak A5</h3>
+<div class="flex items-center space-x-xs mt-xs text-text-secondary font-mono-data text-[12px]">
+<span>28 pesanan</span>
+<span>•</span>
+<span class="text-[#bccbb6] flex items-center"><span class="material-symbols-outlined text-[12px] mr-[2px]" data-icon="arrow_upward">arrow_upward</span>12%</span>
+</div>
+</div>
+<div class="font-mono-data text-body-md font-semibold text-text-primary">
+                        $2,380
+                    </div>
+</div>
+</div>
+</section>
+<!-- Operational Stats -->
+<section class="bg-surface border border-border rounded-lg p-md">
+<div class="flex justify-between items-center mb-md">
+<h2 class="font-label-caps text-label-caps text-text-secondary">Waktu Persiapan Rata-rata</h2>
+<div class="bg-secondary-container/20 text-[#bccbb6] px-2 py-1 rounded text-[10px] font-label-caps flex items-center border border-[#bccbb6]/20">
+<div class="w-2 h-2 rounded-full bg-[#bccbb6] mr-1"></div> Good
+                </div>
+</div>
+<div class="flex items-end space-x-sm">
+<span class="font-display-lg-mobile text-display-lg-mobile text-text-primary">18</span>
+<span class="font-body-md text-body-md text-text-secondary pb-1">menit</span>
+</div>
+<div class="w-full bg-surface-bright h-1 rounded-full mt-md overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 75%;"></div>
+</div>
+<div class="flex justify-between mt-sm font-mono-data text-[10px] text-text-secondary">
+<span>Target: 25m</span>
+<span>Lebih cepat 7m</span>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden flex justify-around items-center h-20 pb-safe bg-surface dark:bg-surface-dim fixed bottom-0 w-full z-50 border-t border-outline-variant">
+<!-- More is Active (Dashboard context) -->
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-95 transition-transform duration-200 cursor-pointer">
+<span class="material-symbols-outlined mb-1" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="font-label-caps text-label-caps">Menu</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-95 transition-transform duration-200 cursor-pointer">
+<span class="material-symbols-outlined mb-1" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-caps text-label-caps">Orders</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-95 transition-transform duration-200 cursor-pointer">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</div>
+<!-- Setting More as active for this admin dashboard view -->
+<div class="flex flex-col items-center justify-center text-primary active:scale-95 transition-transform duration-200 cursor-pointer">
+<span class="material-symbols-outlined mb-1" data-icon="more_horiz">more_horiz</span>
+<span class="font-label-caps text-label-caps">More</span>
+</div>
+</nav>
+</body></html>
