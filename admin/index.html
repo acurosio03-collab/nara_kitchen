@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin Login — NARA KITCHEN</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/supabase-config.js"></script>
+  <script src="../js/supabase.js"></script>
+</head>
+<body>
+  <main class="container" style="max-width:460px;padding:70px 0">
+    <div class="panel">
+      <div class="eyebrow">NARA KITCHEN</div>
+      <h1>Admin Login</h1>
+      <p class="muted">Kelola menu dan pesanan dari satu tempat.</p>
+      <div id="msg"></div>
+      <form id="f" class="form-grid">
+        <label>Email<input required type="email" name="email" placeholder="admin@email.com"></label>
+        <label>Password<input required type="password" name="password" placeholder="Password"></label>
+        <button class="primary" type="submit">Masuk</button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    const msg = document.getElementById("msg");
+    const form = document.getElementById("f");
+
+    function show(message) {
+      msg.innerHTML = '<div class="panel">' + message + '</div>';
+    }
+
+    function waitForSupabase() {
+      if (window.dbReady && window.db) return true;
+      show('Menghubungkan ke Supabase...');
+      return false;
+    }
+
+    async function checkSession() {
+      if (!waitForSupabase()) return;
+      const { data, error } = await window.db.auth.getSession();
+      if (error) {
+        show('Gagal memeriksa sesi: ' + error.message);
+        return;
+      }
+      if (data.session) window.location.href = 'dashboard.html';
+      else msg.innerHTML = '';
+    }
+
+    window.addEventListener('supabase-ready', checkSession);
+    setTimeout(checkSession, 1500);
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      if (!waitForSupabase()) return;
+
+      const email = form.elements.email.value.trim();
+      const password = form.elements.password.value;
+      const button = form.querySelector('button');
+      button.disabled = true;
+      button.textContent = 'Memproses...';
+      msg.innerHTML = '';
+
+      const { error } = await window.db.auth.signInWithPassword({ email, password });
+
+      if (error) {
+        show('Login gagal: ' + error.message);
+        button.disabled = false;
+        button.textContent = 'Masuk';
+        return;
+      }
+
+      window.location.href = 'dashboard.html';
+    });
+  </script>
+</body>
+</html>
